@@ -27,8 +27,6 @@ def get():
         return json.loads(f.read())
 
 def update(users):
-    """
-    Update 
     with open(USERS_PATH, "w") as f:
         f.write(json.dumps(users))
 
