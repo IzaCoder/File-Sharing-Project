@@ -4,6 +4,7 @@ import os
 from helpers.validation import valid_password
 import helpers.users
 import helpers.globals
+import helpers.data_handling
 
 app = Flask(__name__)
 
@@ -25,13 +26,13 @@ def create_account():
             return render_template("create_account.html")
 
         helpers.users.new_user(username, password)
-        users = helpers.users.get()
+        users = helpers.data_handling.get("users")
         return render_template("profile.html", user=users[username])
 
 
 @app.route("@<username>/")
 def profile(username):
-    globals = helpers.globals.get()
+    globals = helpers.data_handling.get("globals")
     if globals["logged_in"]:
         
 
