@@ -32,8 +32,11 @@ def create_account():
 @app.route("@<username>/")
 def profile(username):
     globals = helpers.globals.get()
+    users = helpers.users.get()
     if globals["logged_in"]:
-        
+        return render_template("profile.html", user=users[username])
+    else:
+        return render_template("index.html")
 
 
 app.run("0.0.0.0")
