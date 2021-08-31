@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>File Sharing</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../static/styles.css">
+        <script src="../static/script.js"></script>
+    </head>
+    <body>
+        {% if authed %}
+            <a href="/@{{ user['username']}}/">Profile</a>
+        {% else %}
+            <a href="/create-account">Create an account</a>
+        {% endif %}
+    </body>
+</html>
