@@ -1,4 +1,4 @@
 import json
 
 # Declare constant
-BASEP_PATH = "./data/"
+BASE_PATH = "./data/"
