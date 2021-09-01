@@ -30,7 +30,7 @@ def create_account():
         return render_template("profile.html", user=users[username])
 
 
-@app.route("@<username>/")
+@app.route("/@<username>/")
 def profile(username):
     globals = helpers.data_handling.get("globals")
     users = helpers.data_handling.get("users")
