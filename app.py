@@ -47,7 +47,7 @@ def log_in():
         
         globals = helpers.data_handling.get("globals")
         globals["logged_in"] = username
-        globals.data_handling.update("globals", globals)
+        helpers.data_handling.update("globals", globals)
         return render_template("profile.html", user=users[username])
 
 
