@@ -34,6 +34,7 @@ def log_in():
     if request.method == "GET":
         return render_template("login.html")
     else:
+        session.pop("_flashes", None)
         users = helpers.data_handling.get("users")
         username = request.form.get("username")
         password = request.form.get("password")
