@@ -1,7 +1,7 @@
 import json
 import os
 
-import globals
+import helpers.globals
 
 # Declare variables
 USERS_PATH = "./data/users.json"
