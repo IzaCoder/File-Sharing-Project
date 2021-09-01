@@ -33,7 +33,7 @@ def update(users):
 def new_user(username, password):
     # Get variables
     users = get()
-    global_vars = globals.get()
+    global_vars = helpers.globals.get()
 
     # Update variables
     os.environ[username] = password
@@ -53,4 +53,4 @@ def new_user(username, password):
 
     # Write the changes made to the files
     update(users)
-    globals.update(global_vars)
+    helpers.globals.update(global_vars)
