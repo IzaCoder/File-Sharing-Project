@@ -3,7 +3,6 @@ import os
 
 from helpers.validation import valid_password
 import helpers.users
-import helpers.globals
 import helpers.data_handling
 
 app = Flask(__name__)
