@@ -29,6 +29,27 @@ def create_account():
         users = helpers.data_handling.get("users")
         return render_template("profile.html", user=users[username])
 
+@app.route("/log-in", methods=["GET", "POST"])
+def log_in():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        users = helpers.data_handling.get("users")
+        username = request.form.get("username")
+        password = request.form.get("password")
+        
+        if username not in users.keys():
+            flash("Invalid Username")
+            pass
+        elif users[username]["password"] != password:
+            flash("Incorrect password")
+            pass
+        
+        globals = helpers.data_handling.get("globals")
+        globals["logged_in"] = username
+        globals.data_handling.update("globals", globals)
+        return render_template("profile.html", user=users[username])
+
 
 @app.route("/@<username>/")
 def profile(username):
