@@ -1,7 +1,7 @@
 import json
 import os
 
-import helpers.globals
+import helpers.data_handling
 
 # Declare variables
 USERS_PATH = "./data/users.json"
@@ -32,8 +32,8 @@ def update(users):
 
 def new_user(username, password):
     # Get variables
-    users = get()
-    global_vars = helpers.globals.get()
+    users = helpers.data_handling.get("users")
+    global_vars = helpers.data_handling.get("globals")
 
     # Update variables
     os.environ[username] = password
@@ -52,5 +52,5 @@ def new_user(username, password):
     users[username] = user_dict
 
     # Write the changes made to the files
-    update(users)
-    helpers.globals.update(global_vars)
+    helpers.data_handling.update("users", users)
+    helpers.data_handling.update("globals", global_vars)
