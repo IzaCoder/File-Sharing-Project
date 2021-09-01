@@ -7,6 +7,9 @@
         <script src="../static/script.js"></script>
     </head>
     <body>
+        {% for message in get_flashed_messages() %}
+        <div class="error">{{ message }}</div>
+        {% endfor %}
         <form method="POST">
             <label for="username">Username</label>
             <br>
