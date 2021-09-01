@@ -40,10 +40,10 @@ def log_in():
         
         if username not in users.keys():
             flash("Invalid Username")
-            pass
+            return render_template("login.html")
         elif users[username]["password"] != password:
             flash("Incorrect password")
-            pass
+            return render_template("login.html")
         
         globals = helpers.data_handling.get("globals")
         globals["logged_in"] = username
